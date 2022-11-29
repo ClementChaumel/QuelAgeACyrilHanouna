@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+  <title>Quel âge a Cyril Hanouna ?</title>
+
+  <style>
+
+    :root {
+      --step: 0.5rem;
+      --blur-1: 60px;
+      --blur-2: 20px;
+    }
+
+    @keyframes tictac {
+      0% {
+        color: #fff;
+        font-variation-settings: "wght" 0;
+      }
+      50% {
+        color: #f00;
+        font-variation-settings: "wght" 1000;
+      }
+      100% {
+        color: #fff;
+        font-variation-settings: "wght" 0;
+      }
+    }
+
+
+    @keyframes thunderstrike {
+      0% {
+        backdrop-filter: blur(var(--blur-1));
+      }
+      20% {
+        backdrop-filter: blur(var(--blur-1));
+      }
+      21% {
+        backdrop-filter: blur(var(--blur-2));
+      }
+      23% {
+        backdrop-filter: blur(var(--blur-1));
+      }
+      26% {
+        backdrop-filter: blur(var(--blur-1));
+      }
+      27% {
+        backdrop-filter: blur(var(--blur-2));
+      }
+      30% {
+        backdrop-filter: blur(var(--blur-1));
+      }
+      80% {
+        backdrop-filter: blur(var(--blur-1));
+      }
+      81% {
+        backdrop-filter: blur(0px);
+      }
+      90% {
+        backdrop-filter: blur(var(--blur-1));
+      }
+    }
+
+
+    body{
+      margin: 0;
+      font-family: 'Dosis', sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      
+      background-image: url("bg.jpg");
+      background-size: cover;
+      backdrop-filter: blur(var(--blur-1));
+      background-blend-mode: luminosity;
+
+      animation: thunderstrike 15s infinite;
+      animation-delay: 5s;
+    }
+
+    h1 > strong {
+      animation: tictac 1s infinite;
+      text-shadow: var(--step) var(--step) 0px #ff00003b, 
+                   calc(2 * var(--step)) calc(2 * var(--step)) 2px #ff00003b, 
+                   calc(3 * var(--step)) calc(3 * var(--step)) 3px #ff00003b, 
+                   calc(5 * var(--step)) calc(5 * var(--step)) 5px #ff00003b, 
+                   calc(8 * var(--step)) calc(8 * var(--step)) 8px #ff00003b, 
+                   calc(13 * var(--step)) calc(13 * var(--step)) 13px #ff00003b, 
+                   calc(21 * var(--step)) calc(21 * var(--step)) 21px #ff00003b, 
+                   calc(34 * var(--step)) calc(34 * var(--step)) 34px #ff00003b, 
+                   calc(55 * var(--step)) calc(55 * var(--step)) 55px #ff00003b, 
+                   calc(89 * var(--step)) calc(89 * var(--step)) 89px #ff00003b, 
+                   calc(-1 * var(--step)) calc(-1 * var(--step)) 0px #ff00003b,
+                   calc(-2 * var(--step)) calc(-2 * var(--step)) 2px #ff00003b, 
+                   calc(-3 * var(--step)) calc(-3 * var(--step)) 3px #ff00003b, 
+                   calc(-5 * var(--step)) calc(-5 * var(--step)) 5px #ff00003b, 
+                   calc(-8 * var(--step)) calc(-8 * var(--step)) 8px #ff00003b, 
+                   calc(-13 * var(--step)) calc(-13 * var(--step)) 13px #ff00003b, 
+                   calc(-21 * var(--step)) calc(-21 * var(--step)) 21px #ff00003b, 
+                   calc(-34 * var(--step)) calc(-34 * var(--step)) 34px #ff00003b, 
+                   calc(-55 * var(--step)) calc(-55 * var(--step)) 55px #ff00003b, 
+                   calc(-89 * var(--step)) calc(-89 * var(--step)) 89px #ff00003b;
+    }
+  </style>
+</head>
+
+<body>
+    <h1>
+      Cyril Hanouna a <strong id="age">48</strong> ans.
+    </h1>
+</body>
+
+<script>
+  const naissance = new Date(1974, 9, 23);
+  const maintenant = new Date();
+  const age = maintenant - naissance;
+
+  const ageEnAnnees = Math.floor(age / 1000 / 60 / 60 / 24 / 365);
+
+  document.querySelector("#age").textContent = ageEnAnnees;
+</script>
+
+</html>
